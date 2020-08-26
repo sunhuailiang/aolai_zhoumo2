@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class BaseAction:
 
     def __init__(self, driver):
-        self.driver = __init__()
+        self.driver = driver
 
     def find_element(self, feature, timeout=10.0, poll_frequency=1.0):
         return WebDriverWait(self.driver, timeout, poll_frequency).until(lambda x: x.find_element(*feature))

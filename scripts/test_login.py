@@ -1,5 +1,4 @@
 import time
-
 from base.base_driver import init_driver
 from page.home_page import HomePage
 from page.login_page import LoginPage
@@ -10,22 +9,21 @@ class TestLogin:
 
     def setup(self):
         self.driver = init_driver()
-        self.homepage = HomePage(self.driver)
-        self.regpage = RegPage(self.driver)
-        self.loginpage = LoginPage(self.driver)
+        self.home_page = HomePage(self.driver)
+        self.reg_page = RegPage(self.driver)
+        self.login_page = LoginPage(self.driver)
     def teardown(self):
         time.sleep(3)
         self.driver.quit()
     def test_login(self):
-        '''关闭更新'''
-        self.homepage.click_close()
+        self.home_page.click_close()
         '''点击我的'''
-        self.homepage.click_me()
+        self.home_page.click_me()
         '''点击登录账号密码登录'''
-        self.regpage.click_login()
+        self.reg_page.click_login()
         '''输入账号'''
-        self.loginpage.input_username("15911104543")
+        self.login_page.input_username("15911104543")
         '''输入密码'''
-        self.loginpage.input_paswrod("52111314shl")
+        self.login_page.input_paswrod("52111314shl")
         '''点击登录'''
-        self.loginpage.click_login()
+        self.login_page.click_login()
