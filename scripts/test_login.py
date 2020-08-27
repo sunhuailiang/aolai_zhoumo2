@@ -1,4 +1,8 @@
 import time
+
+import pytest
+
+from base.base_analyze import analyze_data
 from base.base_driver import init_driver
 from page.home_page import HomePage
 from page.login_page import LoginPage
@@ -15,15 +19,19 @@ class TestLogin:
     def teardown(self):
         time.sleep(3)
         self.driver.quit()
-    def test_login(self):
+    @pytest.mark.parametrize("args",analyze_data("login_data","test_login"))
+    def test_login(self,args):
+        username = args["username"]
+        password = args["password"]
+        '''点击关闭更新'''
         self.home_page.click_close()
         '''点击我的'''
         self.home_page.click_me()
         '''点击登录账号密码登录'''
         self.reg_page.click_login()
         '''输入账号'''
-        self.login_page.input_username("15911104543")
+        self.login_page.input_username(username)
         '''输入密码'''
-        self.login_page.input_paswrod("52111314shl")
+        self.login_page.input_paswrod(password)
         '''点击登录'''
         self.login_page.click_login()
