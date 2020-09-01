@@ -1,10 +1,13 @@
 test_login:
   test_login_001:
-    username: "15911104543"
+    username: "nihaihaoma"
     password: "52111314shl"
+    toast: null
   test_login_002:
-    username: "15911104553"
+    username: "nihaihaom"#
     password: "52111314shl"
+    toast: "此用户不存在"
   test_login_003:
-    username: "15911104543"
+    username: "nihaihaoma"
     password: "52111314sh"
+    toast: "登录密码错误"

@@ -13,7 +13,7 @@ def init_driver(no_reset=True):
     desired_caps['appPackage'] = 'com.yunmall.lc'
     # 需要启动的程序的界面名
     desired_caps['appActivity'] = 'com.yunmall.ymctoc.ui.activity.MainActivity'
-    # 告诉 appium 不要重置应用
+    # 告诉 appium 不要重置应用 noReset本身是不重置
     desired_caps['noReset'] = no_reset
     # 使用 uiautomator2
     desired_caps['automationName'] = 'Uiautomator2'
